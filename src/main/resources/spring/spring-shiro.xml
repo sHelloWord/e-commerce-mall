@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--配置shiro过滤器-->
+    <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+        <property name="securityManager" ref="securityManager"/>
+        <!--配置登陆页面-->
+        <property name="loginUrl" value="/login.jsp"/>
+
+        <!--认证不通过-->
+        <property name="unauthorizedUrl" value="/login.jsp"/>
+
+        <!--配置过滤器链，从上到下,顺序执行-->
+        <property name="filterChainDefinitions">
+            <value>
+                <!-- anon 匿名访问-->
+                <!--/js/** = anon-->
+                <!--/image/** = anon-->
+                <!--/css/** = anon-->
+                <!-- /** = authc 所有的url都要通过认证才能访问  -->
+                <!--/** = authc-->
+                /web/** = authc
+                /** = anon
+            </value>
+        </property>
+
+    </bean>
+
+    <!--securityManager安全管理器-->
+    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+        <!--配置认证和授权-->
+        <property name="realm" ref="myRealm"/>
+    </bean>
+
+    <!--自定义认证和授权-->
+    <bean id="myRealm" class="com.rimi.mall.security.MyRealm">
+        <!--密码匹配器-->
+        <property name="credentialsMatcher">
+            <bean class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">
+                <property name="hashAlgorithmName" value="MD5"/>
+                <property name="hashIterations" value="1024"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>
+
+    <!--开启注解-->
+    <bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator" depends-on="lifecycleBeanPostProcessor"/>
+
+    <bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
+        <property name="securityManager" ref="securityManager"/>
+    </bean>
+
+</beans>
