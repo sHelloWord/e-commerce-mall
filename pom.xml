@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.rimi</groupId>
-    <artifactId>xxx-mall</artifactId>
+    <artifactId>e-commerce-mall</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <packaging>war</packaging>
