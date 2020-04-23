@@ -20,7 +20,7 @@
         <pagehelper.version>5.1.8</pagehelper.version>
         <mysql.version>5.1.47</mysql.version>
         <junit.version>4.12</junit.version>
-        <jackson.version>2.9.8</jackson.version>
+        <jackson.version>2.9.10.4</jackson.version>
         <druid.version>1.1.16</druid.version>
         <aspectj.version>1.9.2</aspectj.version>
         <commons.fileuplaod.version>1.4</commons.fileuplaod.version>
