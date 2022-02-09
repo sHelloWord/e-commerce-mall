@@ -26,7 +26,7 @@
         <commons.fileuplaod.version>1.4</commons.fileuplaod.version>
         <servlet.version>4.0.1</servlet.version>
         <jstl.version>1.2</jstl.version>
-        <shiro.version>1.4.0</shiro.version>
+        <shiro.version>1.7.1</shiro.version>
         <jedis.version>2.9.3</jedis.version>
         <spring.redis.version>2.1.6.RELEASE</spring.redis.version>
         <fastjson.version>1.2.56</fastjson.version>
