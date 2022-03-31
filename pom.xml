@@ -14,7 +14,7 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <spring.verison>5.1.6.RELEASE</spring.verison>
+        <spring.verison>5.3.18</spring.verison>
         <mybatis.version>3.5.0</mybatis.version>
         <mybatis.spring.version>2.0.0</mybatis.spring.version>
         <pagehelper.version>5.1.8</pagehelper.version>
